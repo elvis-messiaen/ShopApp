@@ -23,11 +23,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+            ],"styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e158a977-7bee-4fb6-9d80-76452e6eb4ac"
   }
 }
