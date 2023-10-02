@@ -12,7 +12,10 @@ import { ProdctItemComponent } from './produits/product-item/prodct-item.compone
 import { ProdctListComponent } from './produits/prodct-list/prodct-list.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AppRoutingModule } from './app-routing.module';
+import { BlogComponent } from './contact/blog/blog.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 
 const customCurrencyMaskConfig = {
@@ -36,12 +39,16 @@ const customCurrencyMaskConfig = {
     ProdctItemComponent,
     ProdctListComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    BlogComponent,
+    ContactComponent
   ],
     imports: [
         BrowserModule,
         RouterOutlet,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule
     ],
   providers: [
   ],

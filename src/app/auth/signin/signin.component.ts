@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from "../../models/user";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-signin',
@@ -7,18 +8,23 @@ import {User} from "../../models/user";
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  user : User = {
-    id: 0,
-    firstname: "",
-    lastname: "",
-    email:"",
-    password: ""
-  }
+  email: FormControl;
+  password:  FormControl;
 
+  signinForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+  this.email = fb.control("",[Validators.required, Validators.email])
+  this.password = fb.control("",[Validators.required])
+
+  this.signinForm = fb.group({
+    email: this.email,
+    password: this.password
+    })
+  }
   confirmpassword: string= "";
   listName: string[] = [];
 
   addInfos() {
-
   }
 }
