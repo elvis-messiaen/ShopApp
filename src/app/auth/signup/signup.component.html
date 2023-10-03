@@ -2,36 +2,21 @@
 <div class="signup">
   <h2>Inscription</h2>
   <div class="form-inline">
-  <div class="d-flex">
-    <input
-      type="text"
-      name="firstName"
-      placeholder="Prénom"
-      [(ngModel)]="user.firstname" />
-    <input
-      type="text"
-      name="lastName"
-      placeholder="Nom"
-      [(ngModel)]="user.lastname"/>
-  </div>
+    <form [formGroup]="userGroup">
     <div class="form2">
-      <input
-        type="email"
-        name="email"
-        placeholder="nom@hotmail.fr"
-        [(ngModel)]="user.email"/>
-      <input
-        type="password"
-        name="password"
-        placeholder="Mot de passe"
-        [(ngModel)]="user.password"/>
-      <input
-        type="password"
-        name="confirmpassword"
-        placeholder="confirmez le mot de passe"
-        [(ngModel)]="confirmpassword"/>
+      <label for="prenom">Prénom</label>
+      <input id="prenom" type="text" formControlName="firstname"/>
+      <label for="nom">Nom</label>
+      <input id="nom" type="text" formControlName="lastname"/>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email"/>
+      <label for="motDePasse">Mot de passe</label>
+      <input id="motDePasse" type="password"  formControlName="password"/>
+      <label for="confirmeMDP">Confirmez le mot de passe</label>
+      <input id="confirmeMDP" type="password"  formControlName="confimreMDP"/>
     </div>
-    <button (click)="addInfos()">S'inscrire</button>
+    <button type="submit" (click)="onSubmitForm()">S'inscrire</button>
+    </form>
   </div>
 </div>
  </div>

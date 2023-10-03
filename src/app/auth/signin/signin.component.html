@@ -1,18 +1,16 @@
 <div class="container">
 <div class="signin">
     <h2>Connection</h2>
-    <div class="form-inline">
+  <div class="form-inline">
+  <form [formGroup]="userGroup">
       <div class="form2">
-        <input
-          type="email"
-          name="email"
-          placeholder="nom@hotmail.fr"/>
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"/>
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email"/>
+        <label for="motDePasse">Mot de passe</label>
+        <input id="motDePasse" type="password"  formControlName="password"/>
       </div>
-      <button (click)="addInfos()">Connection</button>
+      <button type="submit" (click)="onSubmitForm()">Connexion</button>
+  </form>
     </div>
 </div>
 </div>

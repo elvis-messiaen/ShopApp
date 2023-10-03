@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/user";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -7,24 +7,19 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
-  email: FormControl;
-  password:  FormControl;
+export class SigninComponent implements OnInit{
+  userGroup!: FormGroup;
 
-  signinForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-  this.email = fb.control("",[Validators.required, Validators.email])
-  this.password = fb.control("",[Validators.required])
-
-  this.signinForm = fb.group({
-    email: this.email,
-    password: this.password
-    })
-  }
+  constructor(private formBuilder: FormBuilder) {}
   confirmpassword: string= "";
   listName: string[] = [];
-
-  addInfos() {
+  ngOnInit(): void {
+    this.userGroup = this.formBuilder.group({
+      email: [null, [Validators.required]],
+      password: [null, [Validators.required]]
+    });
+  }
+  onSubmitForm() {
+    console.log(this.userGroup.value);
   }
 }
